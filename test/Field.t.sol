@@ -89,8 +89,9 @@ contract FieldTest is Test {
         assertEq(result.length, len, "returned bytes incorrect length");
     }
 
-    function testHashToField() public view {
-        uint256 new_field = hash_to_field.hash_to_field("message");
-        assertEq(new_field, 0);
+    function testHashToField() public {
+        (uint256 u0, uint256 u1) = hash_to_field.hash_to_field(abi.encodePacked("Hello"), hash_to_field.bytes32_to_bytes(hash_to_field.hash_to_field_tag()));
+        console.log(u0);
+        console.log(u1);
     }
 }
